@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-homepage',
@@ -8,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  WakeupHeoku$: Object;
+
+
+  constructor(private data: DataService) { }
 
   ngOnInit() {
+
+    this.data.WakeUpHeroku().subscribe(
+      data => this.WakeupHeoku$ = data
+    );
+
+
   }
 
 }

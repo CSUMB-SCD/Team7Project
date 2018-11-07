@@ -17,7 +17,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
               </div>
-              <input type="text" class="form-control" placeholder="username">
+              <input type="text" #username class="form-control" placeholder="username">
 
             </div>
             <div class="input-group form-group">
@@ -30,7 +30,7 @@
 
             </div>
             <div class="form-group">
-              <input type="submit" value="Login" class="btn float-right login_btn">
+              <input type="button" (click) = 'getUserName(username.value)' value="Login" class="btn float-right login_btn">
             </div>
           </form>
         </div>
@@ -42,7 +42,10 @@
     </div>
   </div>
 
+  <div id ="loginFeedback" >
+    {{message}}
 
+    </div>
 
 
 </body>

@@ -19,10 +19,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td><a routerLink="/details">product1</a></td>
-          <td>$44</td>
-          <td>10</td>
+        <tr *ngFor="let product of products$">
+          <td><a routerLink="/details/{{product.id}}">{{product.name.name}}</a></td>
+          <td>${{product.price.price}}</td>
+          <td>{{product.items_in_stock.items_in_stock}}</td>
           <td><a class="myButton">Add To Cart</a></td>
         </tr>
 
