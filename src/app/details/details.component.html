@@ -1,3 +1,6 @@
+<div id="page_container">
+
+
 <h1>Item Details</h1>
 
 <a routerLink="/">
@@ -22,10 +25,10 @@
   <tbody>
     <tr>
 
-      <td>product1</td>
-      <td>$14</td>
-      <td>10</td>
-      <td><input type="text" name="fname" size="3"></td>
+      <td>{{product$.name.name}}</td>
+      <td>${{product$.price.price}}</td>
+      <td>{{product$.items_in_stock.items_in_stock}}</td>
+      <td><input type="text" placeholder="1" name="fname" size="3"></td>
       <td><a class="myButton">update</a></td>
     </tr>
 
@@ -41,7 +44,13 @@
 </div>
 
 
-<div id="description2">Item Description: this product is not good</div>
+<div id="description2">{{product$.description.description}}</div>
 <br>
 
-<img src="https://images-na.ssl-images-amazon.com/images/I/71Ao-WrjMDL._SX425_.jpg" alt="Paris" style="width:150;border:3px solid;" class="center">
+
+<img id="myimg" src="{{product$.image.imgurl}}" alt="Paris" style="width:150;border:3px solid;" class="center">
+
+
+
+
+</div>

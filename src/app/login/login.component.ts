@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import { DataService } from '../data.service';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,11 +10,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+
+  user$: Object;
+  message = '' ;
+
+  getUserName(username: string) {
+
+
+
+
+    this.http
+    .get<any>('https://users-db1.herokuapp.com/username/' + username, {observe: 'response'})
+    .subscribe(resp => {
+      console.log(resp.body.username.name);
+
+     if (resp.body.username.name === username ) {
+
+       this.router.navigateByUrl('products' );
+     }
+
+
+
+
+    });
+
+
+
+    setTimeout(() => {
+        this.message = 'Wrong Password' ;
+    },
+    350);
+
+
+
+   }
+
+
+
+  constructor(private data: DataService, private http: HttpClient,  private router: Router ) { }
 
   ngOnInit() {
 
-    
+
   }
 
 }

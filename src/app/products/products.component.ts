@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import {filter} from 'rxjs/operators';
+import { DataService } from '../data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -9,14 +11,21 @@ import {filter} from 'rxjs/operators';
 })
 export class ProductsComponent implements OnInit {
 
- //  constructor() { }
+  products$: Object;
 
  currentUrl: string;
- constructor(private router: Router) {
+ constructor(private router: Router, private data: DataService) {
   this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((_: NavigationEnd) => { this.currentUrl = _.url; });
  }
 
   ngOnInit() {
+
+    this.data.getAllProducts().subscribe(
+      data => this.products$ = data
+    );
+
+
+
   }
 
 }
