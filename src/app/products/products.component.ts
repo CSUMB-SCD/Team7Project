@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import {filter} from 'rxjs/operators';
 import { DataService } from '../data.service';
@@ -27,5 +27,13 @@ export class ProductsComponent implements OnInit {
 
 
   }
-
+  sessionCall() {
+    console.log('writing to session');
+    localStorage.setItem('item', 'sessionvalue');
+  }
+  returnSession() {
+    console.log('reading from session');
+    return localStorage.getItem('item');
+  }
 }
+
