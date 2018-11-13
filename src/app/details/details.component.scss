@@ -9,7 +9,7 @@ text-align: center;
 
 
     padding-top:5%;
-    width: 80%;
+    width: 90%;
     color:white;
     font-size:1.0em;
 
@@ -96,13 +96,7 @@ text-align: center;
   color: white;
 }
 
-#buttonContainer{
 
-
-text-align: right;
-padding-right:1%;
-
-}
 
 
 #imageContainer{
@@ -123,5 +117,32 @@ padding-right:1%;
 #page_container{
 
 
+
+}
+
+
+#buttonContainer{
+
+
+  text-align: left;
+  padding-left:1%;
+  display: inline-block;
+
+}
+
+
+
+#button2Container{
+
+  display: inline-block;
+  text-align: left;
+  padding-left:2%;
+
+}
+#button3Container{
+
+  display: inline-block;
+  text-align: left;
+  padding-left:2%;
 
 }

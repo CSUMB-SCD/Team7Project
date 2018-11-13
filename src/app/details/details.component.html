@@ -7,7 +7,20 @@
   <div id="buttonContainer">
   <button class="button button3">Logout</button>
   </div>
-  </a>
+</a>
+
+<a routerLink="/products">
+  <div id="button3Container">
+  <button class="button button3">Products</button>
+  </div>
+</a>
+
+
+<a routerLink="/checkout">
+  <div id="button2Container">
+  <button class="button button3">Checkout</button>
+  </div>
+</a>
 
 
 
@@ -29,7 +42,7 @@
       <td>${{product$.price.price}}</td>
       <td>{{product$.items_in_stock.items_in_stock}}</td>
       <td><input type="text" placeholder="1" name="fname" size="3"></td>
-      <td><a class="myButton">update</a></td>
+      <td><a class="myButton">Add to cart</a></td>
     </tr>
 
 
