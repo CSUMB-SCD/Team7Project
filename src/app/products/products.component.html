@@ -19,12 +19,9 @@
     </div>
   </a>
 
-
-
-
-
-
   <div class="container" ng-controller = "">
+
+
 
       <table class="table table-striped table-hover table-dark">
         <thead>
@@ -36,16 +33,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let product of products$">
-            <td><a routerLink="/details/{{product.id}}">{{product.name.name}}</a></td>
-            <td>${{product.price.price}}</td>
-            <td>{{product.items_in_stock.items_in_stock}}</td>
-            <td><button class="myButton">Add To Cart</button></td>
-          </tr>
-          {{sessionCall()}}
-          {{returnSession()}}
+
+                <tr *ngFor="let product of products$">
+
+
+                    <td><a routerLink="/details/{{product.id}}" id = {{product.id}}>{{product.name.name}}</a></td>
+                    <td >${{product.price.price}}</td>
+                    <td>{{product.items_in_stock.items_in_stock}}</td>
+                    <td><button class="add" (click)="sessionCall(product.name.name)">Add To Cart</button></td>
+                  </tr>
+
+
         </tbody>
       </table>
+
     </div>
 
 </body>
