@@ -27,13 +27,21 @@ export class ProductsComponent implements OnInit {
 
 
   }
-  sessionCall() {
+  sessionCall(name) {
+    //const number = parseFloat((<HTMLInputElement>document.getElementById('number')).value);
     console.log('writing to session');
-    localStorage.setItem('item', 'sessionvalue');
+    console.log(name);
+    const oldname = localStorage.getItem(name);
+    if (isNaN(parseFloat(oldname))) {
+      console.log("isnan");
+      localStorage.setItem(name, "1");
+    } else {
+      console.log("notnan");
+      const newnum = ((parseFloat(oldname)) + 1);
+      localStorage.setItem(name, newnum.toString());
+    }
+
   }
-  returnSession() {
-    console.log('reading from session');
-    return localStorage.getItem('item');
-  }
+
 }
 

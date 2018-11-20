@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import {filter} from 'rxjs/operators';
+import { DataService } from '../data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-checkout',
@@ -6,10 +10,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
+  products$: Object;
 
-  constructor() { }
-
-  ngOnInit() {
+  currentUrl: string;
+  constructor(private router: Router, private data: DataService) {
+   this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((_: NavigationEnd) => { this.currentUrl = _.url; });
   }
+
+  const SessionData = [];
+  ngOnInit() {
+    this.data.getAllProducts().subscribe(
+      data => this.products$ = data
+    );
+    console.log(this.products$);
+    const array1 = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key1 = localStorage.key(i);
+      const value = localStorage.getItem(key1);
+      array1.push({value : value, key: key1});
+     }
+     this.SessionData = array1;
+  }
+
 
 }

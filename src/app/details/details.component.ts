@@ -23,5 +23,21 @@ export class DetailsComponent implements OnInit {
     );
 
   }
+  sessionCall(name,number) {
+    //const number = parseFloat((<HTMLInputElement>document.getElementById('number')).value);
+    console.log('writing to session');
+    console.log(name);
+    const oldname = localStorage.getItem(name);
+    console.log(number);
+    if (isNaN(parseFloat(oldname))) {
+      console.log("isnan");
+      localStorage.setItem(name, number.toString());
+    } else {
+      console.log("notnan");
+      const newnum = ((parseFloat(oldname)) + number);
+      localStorage.setItem(name, newnum.toString());
+    }
+
+  }
 
 }

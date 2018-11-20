@@ -13,7 +13,6 @@
 </a>
 
 
-
   <div class="container">
 
     <table class="table table-hover table-dark">
@@ -24,10 +23,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+          <tr *ngFor="let i of SessionData">
 
-          <td>Item Name</td>
-          <td><input type="text" placeholder="1" name="fname" size="3"></td>
+          <td>{{i.key}}</td>
+          <td><input type="text" placeholder={{i.value}} name="fname" size="3"></td>
           <td><a class="myButton">Update</a></td>
         </tr>
 
