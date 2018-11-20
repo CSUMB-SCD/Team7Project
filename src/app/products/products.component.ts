@@ -28,15 +28,11 @@ export class ProductsComponent implements OnInit {
 
   }
   sessionCall(name) {
-    //const number = parseFloat((<HTMLInputElement>document.getElementById('number')).value);
     console.log('writing to session');
-    console.log(name);
     const oldname = localStorage.getItem(name);
     if (isNaN(parseFloat(oldname))) {
-      console.log("isnan");
-      localStorage.setItem(name, "1");
+      localStorage.setItem(name, '1');
     } else {
-      console.log("notnan");
       const newnum = ((parseFloat(oldname)) + 1);
       localStorage.setItem(name, newnum.toString());
     }

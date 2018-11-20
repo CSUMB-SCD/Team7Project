@@ -17,7 +17,7 @@ export class CheckoutComponent implements OnInit {
    this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((_: NavigationEnd) => { this.currentUrl = _.url; });
   }
 
-  const SessionData = [];
+  SessionData: Object;
   ngOnInit() {
     this.data.getAllProducts().subscribe(
       data => this.products$ = data
