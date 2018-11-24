@@ -41,8 +41,8 @@
       <td >{{product$.name.name}}</td>
       <td>${{product$.price.price}}</td>
       <td>{{product$.items_in_stock.items_in_stock}}</td>
-      <td><input type="text" placeholder="1" name="fname" size="3" id = "number"></td>
-      <td><button class="myButton" (click)="sessionCall(product$.name.name,1)">Add To Cart</button></td>
+      <td><input type="text" placeholder="1" name="fname" size="3" id = "number" #number></td>
+      <td><button class="myButton" (click)="sessionCall(product$.name.name,number.value)">Add To Cart</button></td>
     </tr>
 
 
