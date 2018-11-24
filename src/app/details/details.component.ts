@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class DetailsComponent implements OnInit {
 
   product$: Object;
+  new_number$: number ;
 
 
   constructor(private route: ActivatedRoute, private data: DataService) {
@@ -24,13 +25,20 @@ export class DetailsComponent implements OnInit {
 
   }
   sessionCall(name, number) {
+
+    if ( number === '') {
+      number = 1;
+    }
+
     console.log('writing to session');
     const oldname = localStorage.getItem(name);
     if (isNaN(parseFloat(oldname))) {
+
       localStorage.setItem(name, number.toString());
     } else {
-      const newnum = ((parseFloat(oldname)) + number);
-      localStorage.setItem(name, newnum.toString());
+
+      this.new_number$ = ((parseFloat(oldname)) + parseFloat(number));
+      localStorage.setItem(name, this.new_number$.toString());
     }
 
   }

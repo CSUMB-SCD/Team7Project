@@ -11,6 +11,8 @@ import { Observable } from 'rxjs';
 })
 export class CheckoutComponent implements OnInit {
   products$: Object;
+  Cart$: String;
+  display_control$: String;
 
   currentUrl: string;
   constructor(private router: Router, private data: DataService) {
@@ -30,6 +32,15 @@ export class CheckoutComponent implements OnInit {
       array1.push({value : value, key: key1});
      }
      this.SessionData = array1;
+
+
+
+  if (localStorage.length === 0) {
+    this.Cart$ = 'You Have No Items In Your Cart' ;
+    this.display_control$ = 'display_control' ;
+
+  }
+
   }
 
 
