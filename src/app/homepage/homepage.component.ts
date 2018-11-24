@@ -22,6 +22,8 @@ export class HomepageComponent implements OnInit {
     );
 
 
+  localStorage.clear();
+
   }
 
 }

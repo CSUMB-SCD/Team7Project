@@ -34,12 +34,12 @@ export class LoginComponent implements OnInit {
 
     });
 
-
+    this.message = 'Logging In...' ;
 
     setTimeout(() => {
         this.message = 'Wrong Password' ;
     },
-    350);
+    2500);
 
 
 
