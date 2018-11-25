@@ -35,8 +35,8 @@
       <th scope="col">Quantity</th>
     </tr>
   </thead>
-  <tbody>
-    <div *ngIf="product$">
+  <tbody *ngIf="product$">
+
     <tr >
 
       <td >{{product$.name.name}}</td>
@@ -45,7 +45,7 @@
       <td><input type="text" placeholder="1" name="fname" size="3" id = "number" #number></td>
       <td><button class="myButton" (click)="sessionCall(product$.name.name,number.value)">Add To Cart</button></td>
     </tr>
-  </div>
+
 
   </tbody>
 </table>
