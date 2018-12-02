@@ -14,6 +14,7 @@ export class CheckoutComponent implements OnInit {
   Cart$: String;
   display_control$: String;
 
+
   currentUrl: string;
   constructor(private router: Router, private data: DataService) {
    this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((_: NavigationEnd) => { this.currentUrl = _.url; });
@@ -29,6 +30,9 @@ export class CheckoutComponent implements OnInit {
     for (let i = 0; i < localStorage.length; i++) {
       const key1 = localStorage.key(i);
       const value = localStorage.getItem(key1);
+      if (parseFloat(value) < 1) {
+        continue;
+      }
       array1.push({value : value, key: key1});
      }
      this.SessionData = array1;
@@ -42,6 +46,11 @@ export class CheckoutComponent implements OnInit {
   }
 
   }
+  sessionCall(name, number) {
 
+    console.log('writing to session');
+    localStorage.setItem(name, number.toString());
+
+  }
 
 }
