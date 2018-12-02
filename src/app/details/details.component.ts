@@ -30,6 +30,7 @@ export class DetailsComponent implements OnInit {
       number = 1;
     }
 
+    if (number.toString() !== '0' ) {
     console.log('writing to session');
     const oldname = localStorage.getItem(name);
     if (isNaN(parseFloat(oldname))) {
@@ -40,6 +41,11 @@ export class DetailsComponent implements OnInit {
       this.new_number$ = ((parseFloat(oldname)) + parseFloat(number));
       localStorage.setItem(name, this.new_number$.toString());
     }
+
+  }
+
+
+
 
   }
 
