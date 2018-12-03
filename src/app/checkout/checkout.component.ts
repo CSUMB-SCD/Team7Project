@@ -53,7 +53,13 @@ export class CheckoutComponent implements OnInit {
   sessionCall(name, number , price , id, stock) {
 
     console.log('writing to session');
-    localStorage.setItem(name, number.toString() + ',' +  price.toString() + ',' + id.toString() + ',' + stock.toString());
+
+    if (number === '0' ) {
+    localStorage.removeItem(name);
+     window.location.reload();
+
+  }  else { localStorage.setItem(name, number.toString() + ',' +  price.toString() + ',' + id.toString() + ',' + stock.toString());  }
+
 
   }
 
