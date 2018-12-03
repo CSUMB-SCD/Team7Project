@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
       console.log(resp.body.username.name);
 
      if (resp.body.username.name === username ) {
-
+       localStorage.setItem('username', username);
        this.router.navigateByUrl('products' );
      }
 

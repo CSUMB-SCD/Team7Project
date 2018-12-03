@@ -27,17 +27,18 @@
 
           <td>{{i.key}}</td>
           <td><input type="text" placeholder={{i.value}} name="fname" size="3" #number></td>
-          <td><a class="myButton"(click)="sessionCall(i.key,number.value)">Update</a></td>
+          <td><a class="myButton"(click)="sessionCall(i.key, number.value, i.price ,i.id, i.stock)">Update</a></td>
         </tr>
 
 
       </tbody>
     </table>
+    <h2>Total Cost: ${{totalCost$}}</h2>
 
 
     <a routerLink="/confirmation">
       <div id="button2Container">
-      <button class="button button4">Confirm Purchase</button>
+      <button class="button button4" > Confirm Purchase</button>
       </div>
       </a>
 

@@ -40,7 +40,7 @@
                     <td><a routerLink="/details/{{product.id}}" id = {{product.id}}>{{product.name.name}}</a></td>
                     <td >${{product.price.price}}</td>
                     <td>{{product.items_in_stock.items_in_stock}}</td>
-                    <td><button class="myButton" (click)="sessionCall(product.name.name)">Add To Cart</button></td>
+                    <td><button class="myButton" (click)="sessionCall(product.name.name,product.price.price,product.id,product.items_in_stock.items_in_stock)">Add To Cart</button></td>
                   </tr>
 
 
