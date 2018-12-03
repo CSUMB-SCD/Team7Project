@@ -27,14 +27,14 @@ export class ProductsComponent implements OnInit {
 
 
   }
-  sessionCall(name) {
+  sessionCall(name, price, id, stock) {
     console.log('writing to session');
     const oldname = localStorage.getItem(name);
     if (isNaN(parseFloat(oldname))) {
-      localStorage.setItem(name, '1');
+      localStorage.setItem(name, '1' + ',' +  price.toString() + ',' + id.toString() + ',' + stock.toString());
     } else {
-      const newnum = ((parseFloat(oldname)) + 1);
-      localStorage.setItem(name, newnum.toString());
+      const newnum = ((parseFloat(oldname.split(',')[0])) + 1);
+      localStorage.setItem(name, newnum.toString() + ',' +  price.toString() + ',' + id.toString() +  ',' + stock.toString());
     }
 
   }

@@ -24,7 +24,7 @@ export class DetailsComponent implements OnInit {
     );
 
   }
-  sessionCall(name, number) {
+  sessionCall(name, number, price, id, stock) {
 
     if ( number === '') {
       number = 1;
@@ -35,11 +35,11 @@ export class DetailsComponent implements OnInit {
     const oldname = localStorage.getItem(name);
     if (isNaN(parseFloat(oldname))) {
 
-      localStorage.setItem(name, number.toString());
+      localStorage.setItem(name, number.toString() + ',' +  price.toString() + ',' + id.toString() + ',' + stock.toString());
     } else {
 
-      this.new_number$ = ((parseFloat(oldname)) + parseFloat(number));
-      localStorage.setItem(name, this.new_number$.toString());
+      this.new_number$ = ((parseFloat(oldname.split(',')[0])) + parseFloat(number));
+      localStorage.setItem(name, this.new_number$.toString() + ',' +  price.toString() + ',' + id.toString() + ',' + stock.toString());
     }
 
   }
