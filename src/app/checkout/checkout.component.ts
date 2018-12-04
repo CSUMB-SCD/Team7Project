@@ -17,7 +17,6 @@ export class CheckoutComponent implements OnInit {
   display_control$: String;
   totalCost$: number;
 
-
   currentUrl: string;
   constructor(private router: Router,  private http: HttpClient, private data: DataService) {
    this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((_: NavigationEnd) => { this.currentUrl = _.url; });
@@ -27,12 +26,17 @@ export class CheckoutComponent implements OnInit {
   SessionData: Object;
   ngOnInit() {
 
+    if ((localStorage.length < 3 && localStorage.getItem('totalCost')) || localStorage.length === 1) {
+      this.Cart$ = 'You Have No Items In Your Cart' ;
+      this.display_control$ = 'display_control' ;
+
+    } else {
     const array1 = [];
     for (let i = 0; i < localStorage.length; i++) {
       const key1 = localStorage.key(i);
       const value = localStorage.getItem(key1);
 
-      if (parseFloat(value) < 1 || key1 === 'username') {
+      if (parseFloat(value) < 1 || key1 === 'username' || key1 === 'totalCost') {
         continue;
       }
       const cost = (parseFloat(value.split(',')[1]) * parseFloat(value.split(',')[0]));
@@ -41,13 +45,8 @@ export class CheckoutComponent implements OnInit {
      }
      this.SessionData = array1;
      localStorage.setItem( 'totalCost' , this.totalCost$.toString());
+    }
 
-
-  if (localStorage.length === 0) {
-    this.Cart$ = 'You Have No Items In Your Cart' ;
-    this.display_control$ = 'display_control' ;
-
-  }
 
   }
   sessionCall(name, number , price , id, stock) {
@@ -60,7 +59,7 @@ export class CheckoutComponent implements OnInit {
 
   }  else { localStorage.setItem(name, number.toString() + ',' +  price.toString() + ',' + id.toString() + ',' + stock.toString());  }
 
-
+  window.location.reload();
   }
 
 
