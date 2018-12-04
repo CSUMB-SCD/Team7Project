@@ -50,7 +50,9 @@ export class CheckoutComponent implements OnInit {
 
   }
   sessionCall(name, number , price , id, stock) {
-
+    if ( !number) {
+      number = localStorage.getItem(name).split(',')[0];
+    }
     console.log('writing to session');
 
     if (number === '0' ) {
