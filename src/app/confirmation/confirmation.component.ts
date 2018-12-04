@@ -33,7 +33,7 @@ export class ConfirmationComponent implements OnInit {
 
 
     this.http
-    .get<any>('https://users-db1.herokuapp.com/username/' + localStorage.getItem('username'), {observe: 'response'})
+    .get<any>('https://user-service1.herokuapp.com/getUserData/' + localStorage.getItem('username'), {observe: 'response'})
     .subscribe(resp => {
       console.log(resp.body.usercredit.amount);
       if (!(parseFloat(resp.body.usercredit.amount) >= parseFloat(localStorage.getItem('totalCost')) )) {
