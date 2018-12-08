@@ -17,9 +17,7 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit() {
 
-    this.data.WakeUpHeroku().subscribe(
-      data => this.WakeupHeoku$ = data
-    );
+
 
 
   localStorage.clear();
